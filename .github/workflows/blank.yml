@@ -58,7 +58,7 @@ jobs:
 
           HEADLESS: "true"
           
-        run: python main_28_days_scraping.py
+        run: python main_28_days_scraping_v3.py
 
       - name: Upload logs
         if: always()
