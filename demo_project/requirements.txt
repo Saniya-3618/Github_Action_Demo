@@ -1,0 +1,9 @@
+# pip install -r requirements.txt
+pandas
+openpyxl
+lxml
+xlrd
+pymssql
+playwright
+requests
+python-dotenv

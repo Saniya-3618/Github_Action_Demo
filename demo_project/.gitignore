@@ -1,0 +1,27 @@
+# Python
+__pycache__
+.pyc
+venv
+.venv
+
+# Credentials
+.env
+.env.
+!.env.example
+
+# Logs
+logs
+.log
+
+# Browser
+screenshots
+downloads
+debug
+
+# IDE
+.vscode
+.idea
+
+# Temporary files
+temp
+tmp
