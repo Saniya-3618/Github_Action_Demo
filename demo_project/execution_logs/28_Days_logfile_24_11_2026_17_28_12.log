@@ -1,0 +1,6 @@
+24-Nov-26 17:28:12 - [MainThread] [INFO] - FHFT portal scraping started.
+24-Nov-26 17:28:12 - [MainThread] [ERROR] - Exception while fetching credentials from DB: Encrypted text must not be null or empty
+24-Nov-26 17:28:12 - [MainThread] [ERROR] - Failed to fetch credentials from database
+24-Nov-26 17:28:13 - [MainThread] [INFO] - Token generated successfully
+24-Nov-26 17:28:20 - [MainThread] [INFO] - Notification sent succesfully
+24-Nov-26 17:28:20 - [MainThread] [INFO] - Total time required for the execution is 7.923070430755615

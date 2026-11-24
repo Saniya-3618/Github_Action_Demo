@@ -76,13 +76,13 @@ class FHFTPortalScraping():
             # print('exeception = ',str(e))
             logging.info(f'Error occuredwhile generating token: {str(e)}')
 
-    def send_notification(token, errorMessage, screenshot_path):
+    def send_notification(token, errorMessage):
         
             doc_path = None
-            if screenshot_path:
-                doc_path = "D:\\EPI_Saniya\\Id-Medical_old\\Ready_To_Deploy\\FHFT_NEW_UI\\screenshots\\28_days_after_error_occured_22_09_2026_16_52_19.png"#"C:\\ErrorSSTest\\test.png"#screenshot_path
-                # doc_path = screenshot_path
-                print(doc_path)
+            # if screenshot_path:
+            #     doc_path = "D:\\EPI_Saniya\\Id-Medical_old\\Ready_To_Deploy\\FHFT_NEW_UI\\screenshots\\28_days_after_error_occured_22_09_2026_16_52_19.png"#"C:\\ErrorSSTest\\test.png"#screenshot_path
+            #     # doc_path = screenshot_path
+            #     print(doc_path)
                 
             """
             get token from thor token service
@@ -142,7 +142,7 @@ class FHFTPortalScraping():
             "deliveryPriority": "Low",
             "dataPayloadXml": None,
             # "notifyTemplateXml": "<root><fromName>ID Medical</fromName><fromEmailId>idmedicaltest@gmail.com</fromEmailId><subject>URGENT(local): PY FHFT scraper has failed.</subject><to>kapil.patil@extrapreneursindia.com;saniya.pathan@extrapreneursindia.com;asmita.patil@extrapreneursindia.com;sourabh.shinde@extrapreneursindia.com</to><cc></cc><bcc></bcc><body><![CDATA[<br/>Dear Team, <br/><br/> The East Kent scraper has failed at {}.<br/><br/> The reason of the failure is : {}. <br/><br/><br/>Many thanks]]></body></root>".format(str(current_datetime), str(errorMessage)),
-            "notifyTemplateXml": "<root><fromName>ID Medical</fromName><fromEmailId>idmedicaltest@gmail.com</fromEmailId><subject>URGENT(local): PY FHFT scraper has failed.</subject><to>saniya.pathan@extrapreneursindia.com</to><cc></cc><bcc></bcc><body><![CDATA[<br/>Dear Team, <br/><br/> The East Kent scraper has failed at {}.<br/><br/> The reason of the failure is : {}. <br/><br/><br/>Many thanks]]></body></root>".format(str(current_datetime), str(errorMessage)),
+            "notifyTemplateXml": "<root><fromName>ID Medical</fromName><fromEmailId>idmedicaltest@gmail.com</fromEmailId><subject>URGENT(github action test): PY FHFT scraper has failed.</subject><to>saniya.pathan@extrapreneursindia.com</to><cc></cc><bcc></bcc><body><![CDATA[<br/>Dear Team, <br/><br/> The East Kent scraper has failed at {}.<br/><br/> The reason of the failure is : {}. <br/><br/><br/>Many thanks]]></body></root>".format(str(current_datetime), str(errorMessage)),
             "fromEmailId": None,
             "fromEmailName": None,
             "toEmailIdOrMobileNo": "",
@@ -168,7 +168,7 @@ class FHFTPortalScraping():
             "createdDate": None,
             "lastModifiedBy": None,
             "lastModifiedDateTime": None,
-            "attachmentFilePath": doc_path
+            # "attachmentFilePath": doc_path
             })
             
             apiresponse=apiresponse.json()
@@ -203,6 +203,7 @@ class FHFTPortalScraping():
                 attribute IN ('Url', 'userName', 'Password')
             """)
             rows = cursor.fetchall()
+            print('rows = ', rows)
             
             if len(rows) > 0:
                 # Create a dictionary for easier access
@@ -228,6 +229,10 @@ class FHFTPortalScraping():
                 conn.close()
                 logging.warning(f'No credentials found in database for job_id={job_id}')
                 return None, None, None  
+        
+        except SecurityTokenException as e:
+            logging.error(f'Security token exception while fetching credentials from DB: {str(e)}')
+            return None, None, None
                 
         except Exception as e:
             logging.error(f'Exception while fetching credentials from DB: {str(e)}')
@@ -258,7 +263,7 @@ class FHFTPortalScraping():
             with sync_playwright() as p:
                 try:
                     # Launch Firefox instead of Chromium
-                    browser = p.firefox.launch(headless=False)
+                    browser = p.firefox.launch(headless=True)  # Set headless=False if you want to see the browser
                     # Set download directory
                     context = browser.new_context(accept_downloads=True)
                     driver = context.new_page()
@@ -536,7 +541,7 @@ class FHFTPortalScraping():
     
             errorMessage = str(e)
         
-        return errorMessage, screenshot_path
+        return errorMessage
     
         
 if __name__ == '__main__':
@@ -549,12 +554,12 @@ if __name__ == '__main__':
 
     # if message:
     #     print('1')
-    message2 , screenshot_path= FHFTPortalScraping.unfilled_req_scraping()
+    message2 = FHFTPortalScraping.unfilled_req_scraping()
     if message2: 
         print('2')
         token = FHFTPortalScraping.gettoken()    
         if token:
-            FHFTPortalScraping.send_notification(token, message2, screenshot_path)  
+            FHFTPortalScraping.send_notification(token, message2)  
         else:
             # print('Token generation failed')
             logging.info(f'Token generation failed')

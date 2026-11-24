@@ -1,0 +1,5 @@
+24-Nov-26 17:33:20 - [MainThread] [INFO] - FHFT portal scraping started.
+24-Nov-26 17:33:27 - [MainThread] [INFO] - Credentials fetched successfully from database.
+24-Nov-26 17:33:27 - [MainThread] [INFO] - Portal credentials fetched from database successfully.
+24-Nov-26 17:37:54 - [MainThread] [ERROR] - Task was destroyed but it is pending!
+task: <Task pending name='Task-5' coro=<Browser.new_context() done, defined at C:\Users\saniya.pathan\AppData\Local\Programs\Python\Python312\Lib\site-packages\playwright\_impl\_browser.py:128> wait_for=<Future pending cb=[Task.task_wakeup()]> cb=[SyncBase._sync.<locals>.<lambda>() at C:\Users\saniya.pathan\AppData\Local\Programs\Python\Python312\Lib\site-packages\playwright\_impl\_sync_base.py:111, ProtocolCallback.__init__.<locals>.cb() at C:\Users\saniya.pathan\AppData\Local\Programs\Python\Python312\Lib\site-packages\playwright\_impl\_connection.py:228]>
