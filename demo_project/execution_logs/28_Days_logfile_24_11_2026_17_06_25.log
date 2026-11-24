@@ -1,3 +1,0 @@
-24-Nov-26 17:06:25 - [MainThread] [INFO] - FHFT portal scraping started.
-24-Nov-26 17:06:25 - [MainThread] [ERROR] - Exception while fetching credentials from DB: Encrypted text must not be null or empty
-24-Nov-26 17:06:25 - [MainThread] [ERROR] - Failed to fetch credentials from database
