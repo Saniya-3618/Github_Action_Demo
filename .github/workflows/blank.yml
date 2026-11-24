@@ -1,36 +1,67 @@
-# This is a basic workflow to help you get started with Actions
 
-name: CI
+name: Scraper service
 
-# Controls when the workflow will run
 on:
-  # Triggers the workflow on push or pull request events but only for the "main" branch
-  push:
-    branches: [ "demo" ]
-  pull_request:
-    branches: [ "demo" ]
-
-  # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+  schedule:
+    - cron: "*/30 * * * *"
+
+concurrency:
+  group: fhft
+  cancel-in-progress: false
+
 jobs:
-  # This workflow contains a single job called "build"
-  build:
-    # The type of runner that the job will run on
-    runs-on: self-hosted
+  hpan:
+    runs-on: [self-hosted, Windows, X64, uhbw]
+    timeout-minutes: 25
 
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v4
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-      # Runs a single command using the runners shell
-      - name: Run a one-line script
-        run: echo Hello, world!
+      - name: Verify Python
+        shell: powershell
+        run: python --version
 
-      # Runs a set of commands using the runners shell
-      - name: Run a multi-line script
+      - name: Install dependencies
+        shell: powershell
         run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Install Playwright Chromium
+        if: ${{ hashFiles('requirements.txt') != '' }}
+        shell: powershell
+        run: |
+          python -m playwright install chromium
+
+      - name: Run scraper
+        shell: powershell
+        env:
+          DB_SERVER: ${{ secrets.DB_SERVER }}
+          # DB_PORT: ${{ secrets.DB_PORT }}
+          DB_NAME: ${{ secrets.DB_NAME }}
+          DB_USERNAME: ${{ secrets.DB_USERNAME }}
+          DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
+
+          # IMAP_HOST: ${{ secrets.IMAP_HOST }}
+          # IMAP_PORT: ${{ secrets.IMAP_PORT }}
+          # IMAP_USERNAME: ${{ secrets.IMAP_USERNAME }}
+          # IMAP_PASSWORD: ${{ secrets.IMAP_PASSWORD }}
+
+          # HPAN_USERNAME: ${{ secrets.HPAN_USERNAME }}
+          # HPAN_PASSWORD: ${{ secrets.HPAN_PASSWORD }}
+
+          HEADLESS: "true"
+
+        run: python main.py
+
+      - name: Upload logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: hpan-logs-${{ github.run_number }}
+          path: execution/
+          if-no-files-found: warn
+          retention-days: 14
