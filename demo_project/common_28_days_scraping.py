@@ -1,12 +1,12 @@
 import os
-from dotenv import load_dotenv
+# from dotenv import load_dotenv
 
-ENV_FILE = os.path.join(
-    'D:\\EPI_Saniya\\Id-Medical_old\\Ready_To_Deploy\\Github_action_project\\Github_Action_Demo\\demo_project',
-    ".env" 
-)
+# ENV_FILE = os.path.join(
+#     'D:\\EPI_Saniya\\Id-Medical_old\\Ready_To_Deploy\\Github_action_project\\Github_Action_Demo\\demo_project',
+#     ".env" 
+# )
 
-load_dotenv(ENV_FILE)
+# load_dotenv(ENV_FILE)
 
 class Constants:
 
