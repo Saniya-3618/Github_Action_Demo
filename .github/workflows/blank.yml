@@ -28,7 +28,7 @@ jobs:
         shell: powershell
         run: |
           python -m pip install --upgrade pip
-          pip install -r requirements.txt
+          pip install -r demo_projects/requirements.txt
 
       - name: Install Playwright Chromium
         if: ${{ hashFiles('requirements.txt') != '' }}
@@ -55,13 +55,13 @@ jobs:
 
           HEADLESS: "true"
 
-        run: python demo_project.main_28_days_scraping.py
+        run: python demo_project/main_28_days_scraping.py
 
       - name: Upload logs
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: hpan-logs-${{ github.run_number }}
-          path: execution/
+          path: demo_project/logs
           if-no-files-found: warn
           retention-days: 14
