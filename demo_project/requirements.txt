@@ -7,3 +7,4 @@ pymssql
 playwright
 requests
 python-dotenv
+cryptography
