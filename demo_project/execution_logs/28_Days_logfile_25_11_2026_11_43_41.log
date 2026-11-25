@@ -1,0 +1,22 @@
+25-Nov-26 11:43:41 - [MainThread] [INFO] - FHFT portal scraping started.
+25-Nov-26 11:43:45 - [MainThread] [INFO] - Credentials fetched successfully from database.
+25-Nov-26 11:43:45 - [MainThread] [INFO] - Portal credentials fetched from database successfully.
+25-Nov-26 11:45:31 - [MainThread] [INFO] - Login page opened.
+25-Nov-26 11:46:04 - [MainThread] [INFO] - Login button clicked.
+25-Nov-26 11:47:03 - [MainThread] [INFO] - Gender column selected and saved.
+25-Nov-26 11:47:04 - [MainThread] [INFO] - Selected "Next 28 Days" period option.
+25-Nov-26 11:47:04 - [MainThread] [INFO] - Selected "Agency" option from What.
+25-Nov-26 11:47:10 - [MainThread] [INFO] - Filter submitted.
+25-Nov-26 11:47:54 - [MainThread] [INFO] - Excel downloaded successfully.
+25-Nov-26 11:48:34 - [MainThread] [INFO] - Unfilled Requirements excel available.
+25-Nov-26 11:49:22 - [MainThread] [INFO] - Filled Bookings tab clicked.
+25-Nov-26 11:49:26 - [MainThread] [INFO] - Selected "Next 28 Days" period option.
+25-Nov-26 11:49:31 - [MainThread] [INFO] - Filter submitted.
+25-Nov-26 11:53:14 - [MainThread] [INFO] - Filled Bookings Excel downloaded successfully.
+25-Nov-26 11:53:25 - [MainThread] [INFO] - Logged out successfully.
+25-Nov-26 11:53:25 - [MainThread] [INFO] - Filled Requirements excel available.
+25-Nov-26 11:53:34 - [MainThread] [INFO] - Unfilled requirements stored in file: 28_Days_Unfilled_Requireents_Excel_25_11_2026_11_53_31.xlsx
+25-Nov-26 11:53:34 - [MainThread] [INFO] - Downloaded file moved to filled requirements folder.
+25-Nov-26 11:53:34 - [MainThread] [INFO] - Filled requirements stored in file: 28_Days_Filled_Requireents_Excel_25_11_2026_11_53_31.xlsx
+25-Nov-26 11:53:36 - [MainThread] [INFO] - FHFT portal scraping completed.
+25-Nov-26 11:53:39 - [MainThread] [INFO] - Total time required for the execution is 597.5939567089081

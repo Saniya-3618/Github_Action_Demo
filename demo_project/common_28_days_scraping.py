@@ -1,5 +1,5 @@
 import os
-# from dotenv import load_dotenv
+from dotenv import load_dotenv
 
 # ENV_FILE = os.path.join(
 #     'D:\\EPI_Saniya\\Id-Medical_old\\Ready_To_Deploy\\Github_action_project\\Github_Action_Demo\\demo_project',
@@ -13,9 +13,9 @@ class Constants:
     TOKEN_API_URL = "http://192.168.80.101:80/SecurityManagement/api/v1/token"
     NOTIFICATION_API_URL = "http://192.168.80.101:80/Notification/api/v1/queue"
     
-    DB_SERVER =os.getenv("DB_SERVER")
-    DB_USER =os.getenv("DB_USER")
-    DB_PASSWORD = os.getenv("DB_PASSWORD")
+    DB_SERVER=os.getenv("DB_SERVER")
+    DB_USER=os.getenv("DB_USER")
+    DB_PASSWORD=os.getenv("DB_PASSWORD")
     DB_NAME=os.getenv("DB_NAME")
     
     SECURITY_SERVICE_PATH = r"D:\EPI_Saniya\Id-Medical_old\Ready_To_Deploy"

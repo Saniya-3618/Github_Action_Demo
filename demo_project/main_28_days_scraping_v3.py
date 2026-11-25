@@ -239,12 +239,13 @@ class FHFTPortalScraping():
             return None, None, None
             
     def unfilled_req_scraping():
+        
         try:
             
             KEY = os.getenv("ENCRYPTION_KEY")
 
             cipher = SecurityCipher(KEY)
-        
+         
             start_time = time.time()
             logging.info(f'FHFT portal scraping started.')
             
@@ -555,6 +556,7 @@ if __name__ == '__main__':
     # if message:
     #     print('1')
     message2 = FHFTPortalScraping.unfilled_req_scraping()
+    print('message2 = ', message2)
     if message2: 
         print('2')
         token = FHFTPortalScraping.gettoken()    
