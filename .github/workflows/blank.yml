@@ -8,7 +8,7 @@ on:
     - cron: "*/30 * * * *"
 
 concurrency:
-  group: fhft
+  group: uhbw
   cancel-in-progress: false
 
 jobs:
@@ -45,7 +45,7 @@ jobs:
           DB_SERVER: ${{ secrets.DB_SERVER }}
           # DB_PORT: ${{ secrets.DB_PORT }}
           DB_NAME: ${{ secrets.DB_NAME }}
-          DB_USERNAME: ${{ secrets.DB_USERNAME }}
+          DB_USER: ${{ secrets.DB_USERNAME }}
           DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
 
           # IMAP_HOST: ${{ secrets.IMAP_HOST }}
