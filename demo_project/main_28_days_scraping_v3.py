@@ -184,6 +184,11 @@ class FHFTPortalScraping():
     
     def get_credentials_from_db(cipher):
         try:
+            print('Fetching credentials from database...')
+            print('DB_SERVER = ', Constants.DB_SERVER)
+            print('DB_USER = ', Constants.DB_USER)  
+            print('DB_PASSWORD = ', Constants.DB_PASSWORD)
+            print('DB_NAME = ', Constants.DB_NAME)
             
             db_user = cipher.decrypt(Constants.DB_USER)
             db_password = cipher.decrypt(Constants.DB_PASSWORD)
