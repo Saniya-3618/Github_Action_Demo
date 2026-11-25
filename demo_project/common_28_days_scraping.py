@@ -21,6 +21,7 @@ class Constants:
     SECURITY_SERVICE_PATH = r"D:\EPI_Saniya\Id-Medical_old\Ready_To_Deploy"
     CRED_ENV_FILE_PATH = 'D:\\EPI_Saniya\\Id-Medical_old\\Ready_To_Deploy\\Security_Cipher_Service'
     
+    WORKING_DIRECTORY = "D:\\EPI_Saniya\\Id-Medical_old\\Ready_To_Deploy\\GitHubExecutionFilesStore"
     
     JOB_ID = 30
     LOGIN_PAGE_FRAME_ID = 'aspnetForm'
@@ -49,12 +50,22 @@ class Constants:
     # EXECUTION_SCREENSHOTS_FOLDER = 'D:\\EPI_Saniya\\Id-Medical_old\\Ready_To_Deploy\\FHFT_NEW_UI\\screenshots\\'
     # EXECUTION_LOGS_FOLDER = 'D:\\EPI_Saniya\\Id-Medical_old\\Ready_To_Deploy\\FHFT_NEW_UI\\execution_logs\\'
     # Cross-platform folder paths (relative to script location)
-    EXPORT_REQUIREMENT_EXCEL_DOWNLOAD_PATH = os.path.join(os.path.dirname(__file__), 'download') + os.sep
-    REQUIREMENT_EXCEL_FOLDER = os.path.join(os.path.dirname(__file__), 'unfilled_requirements_excels') + os.sep
-    EXPORT_FILLED_REQUIREMENT_EXCEL_DOWNLOAD_PATH = os.path.join(os.path.dirname(__file__), 'filled_requirements_excels') + os.sep
-    EXECUTION_SCREENSHOTS_FOLDER = os.path.join(os.path.dirname(__file__), 'screenshots') + os.sep
-    EXECUTION_LOGS_FOLDER = os.path.join(os.path.dirname(__file__), 'execution_logs') + os.sep
     
+    
+    # EXPORT_REQUIREMENT_EXCEL_DOWNLOAD_PATH = os.path.join(os.path.dirname(__file__), 'download') + os.sep
+    # REQUIREMENT_EXCEL_FOLDER = os.path.join(os.path.dirname(__file__), 'unfilled_requirements_excels') + os.sep
+    # EXPORT_FILLED_REQUIREMENT_EXCEL_DOWNLOAD_PATH = os.path.join(os.path.dirname(__file__), 'filled_requirements_excels') + os.sep
+    # EXECUTION_SCREENSHOTS_FOLDER = os.path.join(os.path.dirname(__file__), 'screenshots') + os.sep
+    # EXECUTION_LOGS_FOLDER = os.path.join(os.path.dirname(__file__), 'execution_logs') + os.sep
+    
+    
+    EXPORT_REQUIREMENT_EXCEL_DOWNLOAD_PATH = os.path.join(WORKING_DIRECTORY, 'download') + os.sep
+    REQUIREMENT_EXCEL_FOLDER = os.path.join(WORKING_DIRECTORY, 'unfilled_requirements_excels') + os.sep
+    EXPORT_FILLED_REQUIREMENT_EXCEL_DOWNLOAD_PATH = os.path.join(WORKING_DIRECTORY, 'filled_requirements_excels') + os.sep
+    EXECUTION_SCREENSHOTS_FOLDER = os.path.join(WORKING_DIRECTORY, 'screenshots') + os.sep
+    EXECUTION_LOGS_FOLDER = os.path.join(WORKING_DIRECTORY, 'execution_logs') + os.sep
+        
+        
     COLUMNS_LIST = ['Request Id', 'Date', 'Start', 'End', 'Unit', 'Cost Centre', 'Request Grade', 'Skill',	'Agency', 'Staff']
     
     EXECUTION_LOGS_FILENAME = '28_Days_logfile_%d_%m_%Y_%H_%M_%S.log'
